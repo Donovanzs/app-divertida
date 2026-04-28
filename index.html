@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Mi app divertida</h2>
+    <button onclick="general()">Haz clic aquí</button>
+    <p id="result"></p>
+
+    <audio id="laugh" src="https://www.myinstants.com/media/sounds/laugh.mp3"></audio>
+
+    <script>
+        function general() {
+            let opciones = ["si", "tal vez", "pov:"];
+            let chistes = [
+                "Donovan dijo que iba a estudiar… y estudió el techo 😂",
+                "Donovan copiando en el examen: modo ninja activado 🥷",
+                "Profe: saquen hoja. Donovan: *se desaparece* 💀",
+                "Donovan: 'sí entendí'… 5 minutos después: 🤡",
+                "Donovan haciendo tarea: misión imposible 🎬"
+            ];
+
+            let randomOpcion = Math.floor(Math.random() * opciones.length);
+            let randomChiste = Math.floor(Math.random() * chistes.length);
+
+            document.getElementById("result").innerText =
+                opciones[randomOpcion] + " - " + chistes[randomChiste];
+
+            // sonido
+            let sonido = document.getElementById("laugh");
+            sonido.currentTime = 0;
+            sonido.play();
+        }
+    </script>
+</body>
+</html>
